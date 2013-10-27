@@ -1,4 +1,8 @@
 cmusave
 =======
 
-Cmus save command that will write information about music to a file in home.
+Reads from soma.fm groovesalad and stores the MP3 metadata in home directory .savedata.txt .
+
+Also will recognize if a song was already saved in that location.
+
+

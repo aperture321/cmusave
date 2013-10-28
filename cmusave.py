@@ -16,13 +16,18 @@ try:
         content = response.read(read_buffer)
         title = content[metaint:].split("'")[1] + "\n"
         os.chdir(os.path.expanduser("~"))
-        filew = open(".savedata.txt", "r")
+        if os.path.isfile(".savedata.txt"):
+            filew = open(".savedata.txt", "r")
+        else:
+            filew = open(".savedata.txt", "w")
+            filew.close()
+            filew = open(".savedata.txt", "r")
         infile = False
         for line in filew:
             if (line == title):
                 infile = True
         filew.close() #now set for writing
-        filew = open(".savedata.txt", "w")
+        filew = open(".savedata.txt", "a")
         if (not infile):
             filew.write(title)
         filew.close()
